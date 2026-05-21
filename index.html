@@ -87,13 +87,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-  <ul class="navbar-nav ms-auto">
-    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-    <li class="nav-item"><a class="nav-link" href="#contact">Connect</a></li>
-  </ul>
-</div>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Connect</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -152,10 +152,10 @@
     <div class="container py-4">
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
-  <h2 class="mb-4">The Complementary Leadership Model</h2>
-  <p>We built our firm on a singular premise: <em>operations and finance cannot successfully exist in silos</em>. When processes are built without financial visibility, budgets fail. When accounting is structured without operational insight, bottlenecks paralyze the team.</p>
-  <p class="text-muted">Together, we deliver holistic, reality-tested solutions that respect both your bottom line and your daily team capacity.</p>
-</div>
+          <h2 class="mb-4">The Complementary Leadership Model</h2>
+          <p>We built our firm on a singular premise: <em>operations and finance cannot successfully exist in silos</em>. When processes are built without financial visibility, budgets fail. When accounting is structured without operational insight, bottlenecks paralyze the team.</p>
+          <p class="text-muted">Together, we deliver holistic, reality-tested solutions that respect both your bottom line and your daily team capacity.</p>
+        </div>
         <div class="col-lg-6">
           <div class="row g-4">
             <div class="col-sm-6">
@@ -187,9 +187,7 @@
             <h2 class="h3 mb-3 text-center">Let's Connect</h2>
             <p class="text-muted text-center mb-4">Briefly share your context below. We will reply within one business day.</p>
             
-            <!-- Replace the action URL with your unique Web3Forms or Formspree endpoint -->
             <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-              <!-- Web3Forms Access Key Option -->
               <input type="hidden" name="access_key" value="94eaa9ea-0d6d-4980-9ec7-05faf8100a63">
               
               <div class="mb-3">
@@ -227,7 +225,7 @@
   <!-- Bootstrap Bundle with Popper CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-  <!-- Frictionless AJAX Form Submission -->
+  <!-- Frictionless AJAX Form Submission and Menu Logic -->
   <script>
     const form = document.getElementById('contactForm');
     const responseDiv = document.getElementById('formResponse');
@@ -236,7 +234,6 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Basic safeguard if key isn't updated yet
       if(form.action.includes("YOUR_ACCESS_KEY_HERE")) {
         responseDiv.classList.remove('d-none', 'text-success');
         responseDiv.classList.add('text-danger');
@@ -279,19 +276,19 @@
         submitBtn.innerText = "Submit Inquiry";
       });
     });
-    // Automatically close mobile hamburger menu after clicking a link
-const navLinks = document.querySelectorAll('.nav-link');
-const menuToggle = document.getElementById('navbarNav');
-const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
 
-navLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    // Only trigger collapse if the mobile hamburger menu is actually open/visible
-    if (menuToggle.classList.contains('show')) {
-      bsCollapse.hide();
-    }
-  });
-});
+    // Automatically close mobile hamburger menu after clicking a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuToggle = document.getElementById('navbarNav');
+    const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (menuToggle.classList.contains('show')) {
+          bsCollapse.hide();
+        }
+      });
+    });
   </script>
 </body>
 </html>
