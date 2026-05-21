@@ -86,12 +86,12 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <<div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav ms-auto">
-    <li class="nav-item"><a class="nav-link" href="#home" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#services" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">Services</a></li>
-    <li class="nav-item"><a class="nav-link" href="#about" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">About</a></li>
-    <li class="nav-item"><a class="nav-link" href="#contact" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">Connect</a></li>
+    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="#contact">Connect</a></li>
   </ul>
 </div>
     </div>
@@ -279,6 +279,19 @@
         submitBtn.innerText = "Submit Inquiry";
       });
     });
+    // Automatically close mobile hamburger menu after clicking a link
+const navLinks = document.querySelectorAll('.nav-link');
+const menuToggle = document.getElementById('navbarNav');
+const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    // Only trigger collapse if the mobile hamburger menu is actually open/visible
+    if (menuToggle.classList.contains('show')) {
+      bsCollapse.hide();
+    }
+  });
+});
   </script>
 </body>
 </html>
